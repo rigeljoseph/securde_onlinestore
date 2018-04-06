@@ -18,31 +18,41 @@
     <link href="{{ asset('css/fonts/raleway.css') }}" rel='stylesheet'>
     <link href="{{ asset('css/fonts/raleway_dots.css') }}" rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet"> 
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"> 
 </head>
 <body>
 
 
 <!-- NAVIGATION BAR -->
-<div class="div_navigation">
-<ul>
-<li> <a href="/index" id="linkid">HOME </a></li>
-<li><a href="/items" id="linkid">ITEMS </a></li>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
+    <a href="/index" id="linkid" class="navbar-brand">LOZODA </a>
+        <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="navbar-item">
+                 <a href="/items" class="nav-link" id="linkid">ITEMS </a>
+            </li>
+            <li class="navbar-item">
+            <a href="/register" class="nav-link" id="linkid">REGISTER </a>
+            </li>
+        </ul>
+        </div>
+        
+
+        
 {{-- LOGIN STUFF --}}
 
-    <form action="login" method="post"  style="float:right">
-        <li>   USERNAME: <input type="text" name="email"></li>
-        <li>   PASSWORD: <input type="password" name="pword"></li>
-         <li>   <input type="submit" value="LOGIN"> </li>
+    <form class="form-inline" action="login" method="post"  style="float:right">
+           <input type="text" name="email" class="form-control mr-sm-2"  placeholder="Username" aria-label="Username">
+           <input type="password" name="password" class="form-control mr-sm-2"  placeholder="Password" aria-label="Password">
+           <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" value="login">LOGIN</button>
 </form> 
-        <li style="float:right"> <a href="/register"> REGISTER </a></li>
-            {{-- if may session 
+       {{--  <a href="/register"> REGISTER </a>
+           if may session 
             <li> get user name + cart </li>
             --}}
-</ul>
-     
-</div>
+
+</nav>
 
        
 </body>
