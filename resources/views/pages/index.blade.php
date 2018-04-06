@@ -5,13 +5,14 @@
 @section('content')
 
 <div id="photos">
-            <? for ( $n=0; $n<2; $n++){
-                for ( $i=0; $i<4; $i++){ ?>
+            
+            <? for( $n=0; $n<4; $n++){ ?>
            
                 <a href="index.jsp"> <img src=""> </a>
             
                 <? } ?>
-            <br><br>
-           <? } ?>
+        
+    
         </div>
+
 @endsection

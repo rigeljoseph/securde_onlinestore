@@ -1,0 +1,22 @@
+#reg{
+    color:black;
+    margin-top:170px;
+    font-family:arial;
+    font-size:20px; 
+    border-width: thin medium thick 100px;
+    margin-left: 480px;
+    float:left;
+
+}
+input{
+    margin-top:100px;
+}
+ input[type=text],input[type=password]{
+     width:250px;
+     height:40px;
+    
+}
+
+td,th{
+    padding:7px;
+}

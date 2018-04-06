@@ -1,0 +1,81 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #474545;
+    position:fixed;
+    width: 100%;
+    left:0;
+    font-family:arial;
+    font-size:15px; 
+    letter-spacing:0.5px;
+   color:white;
+    padding-left:0px;
+    padding-bottom:-5px;
+    margin-bottom:50px;
+    top:0;
+    height:7%;
+}
+
+ul input{
+    border: none;
+    margin-right: 5px;
+    font-family:arial;
+    font-size:15px; 
+    letter-spacing:0.5px;
+    
+    
+   
+}
+ul input[type=text],{
+    height:20px;
+}
+ul input[type=text],input[type=password]{
+     color:black;
+     width:140px;
+     font-size:10px;
+     height:15px;
+    margin-top: 15px;
+}
+
+ul input[type=submit]{
+    background-color: #474545;
+    color:white;
+    margin-top: 10px;   
+}
+
+ul input[type=submit]:hover{
+    background-color: black;
+}
+li {
+    float: left;
+  
+}
+
+li a, .login{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #111;
+    color:white;
+    text-decoration: none;
+}
+li a:active {
+    background-color: #111;
+    color:white;
+    text-decoration: none;
+}
+
+form {
+margin-top: 4px;
+background-color: #474545;
+}
+

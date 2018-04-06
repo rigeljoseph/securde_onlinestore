@@ -1,0 +1,21 @@
+#photos{
+    margin-top:100px;
+   
+}
+#photos img{
+     height:300px;
+     width:250px;
+     margin-left: 125px;
+     margin-top:50px;
+}
+
+#reg{
+    color:black;
+    margin-top:170px;
+    font-family:arial;
+    font-size:20px; 
+    border-width: thin medium thick 100px;
+    margin-left: 470px;
+    float:left;
+
+}

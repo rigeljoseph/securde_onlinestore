@@ -17,11 +17,12 @@
     <link href="{{ asset('css/fonts/raleway.css') }}" rel='stylesheet'>
     <link href="{{ asset('css/fonts/raleway_dots.css') }}" rel='stylesheet'>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  
+  @yield('style')
 </head>
 <body>
     <div id="app">
-        @include('inc.navbar')
+    
+     @include('inc.navbar')
     @yield('content')
     </div>
 
