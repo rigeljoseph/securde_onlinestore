@@ -39,15 +39,16 @@
         
 {{-- LOGIN STUFF --}}
 
-    <form class="form-inline" action="login" method="post"  style="float:right">
+    <form class="form-inline" action="login" method="post" >
            <input type="text" name="email" class="form-control mr-sm-2"  placeholder="Username" aria-label="Username">
            <input type="password" name="password" class="form-control mr-sm-2"  placeholder="Password" aria-label="Password">
            <button class="btn btn-light my-2 my-sm-0" type="submit" value="login">Login</button>
-
-
+         
     </form>
-    <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" value="register">Register</button>
-       {{--  <a href="/register"> REGISTER </a>
+    
+      <a href="/register" class="btn btn-light my-2 my-sm-0" style="margin-left:4px;" > Signup </a>
+         
+       {{-- 
            if may session 
             <li> get user name + cart </li>
             --}}
