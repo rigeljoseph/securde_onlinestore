@@ -20,7 +20,7 @@
   @yield('style')
 </head>
 <body>
-    <div id="app">
+    <div>
     
      @include('inc.navbar')
     @yield('content')
