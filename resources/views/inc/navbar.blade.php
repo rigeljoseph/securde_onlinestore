@@ -22,39 +22,52 @@
 </head>
 <body>
 
-
-<!-- NAVIGATION BAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-    <a href="/index" id="linkid" class="navbar-brand" style="font-size:30px">Lozoda</a>
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <div class="container">
+        <a href="/index" id="linkid" class="navbar-brand">Lozoda</a>
         <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="navbar-item">
-                 <a href="/items" class="nav-link" id="linkid" style="font-size:25px">Items</a>
-            </li>
-        </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="navbar-item">
+                    <a href="/items" class="nav-link" id="linkid">Items</a>
+                </li>
+            </ul>
         </div>
-        
 
-        
-{{-- LOGIN STUFF --}}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav mr-auto">
 
-    <form class="form-inline" action="login" method="post" style="font-size:25px">
-           <input type="text" name="email" class="form-control mr-sm-2"  placeholder="Username" aria-label="Username">
-           <input type="password" name="password" class="form-control mr-sm-2"  placeholder="Password" aria-label="Password">
-           <button class="btn btn-light my-2 my-sm-0" type="submit" value="login">Login</button>
-         
-    </form>
-    
-      <a href="/register" class="btn btn-light my-2 my-sm-0" style="margin-left:4px;" > Signup </a>
-         
-       {{-- 
-           if may session 
-            <li> get user name + cart </li>
-            --}}
+            </ul>
 
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Authentication Links -->
+                @guest
+                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+            </ul>
+        </div>
+    </div>
 </nav>
-
        
 </body>
 </html>

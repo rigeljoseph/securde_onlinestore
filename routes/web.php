@@ -26,3 +26,6 @@ Route::get('/items', function () {
 Route::get('/register', function () {
     return view('pages/register');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
