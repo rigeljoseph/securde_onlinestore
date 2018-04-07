@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('style')
-<link href="{{ asset('css/register.css') }}" rel="stylesheet">
-@endsection
+
 @section('content')
  
 
@@ -14,7 +12,7 @@
 <input type="text" name="email" class="form-control form-control-lg"  placeholder="EMAIL" aria-label="Email"><br>
 <input type="password" name="pword" class="form-control form-control-lg"  placeholder="PASSWORD" aria-label="Password"><br>
 <input type="password" name="pword1" class="form-control form-control-lg"  placeholder="CONFIRM PASSWORD" aria-label="Password"><br>
-<button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" value="submit">SUBMIT</button>
+<button class="btn btn-outli    ne-secondary my-2 my-sm-0" type="submit" value="submit">SUBMIT</button>
 </form> 
 
 </div>

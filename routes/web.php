@@ -37,7 +37,7 @@ Route::get('/purchases', function () {
     return view('pages/adminpurchases');
 });
 Route::get('/newadmin', function () {
-    return view('pages/admincreate');
+    return view('auth/createadmin');
 });
 
 Auth::routes();
