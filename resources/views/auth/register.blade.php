@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
-
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -15,7 +14,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" oninvalid="this.setCustomValidity('Please set your username.')" value="{{ old('username') }}" required autofocus>
 
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback">
@@ -24,6 +23,18 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="font-weight-light">
+                                    Username should be 3 to 20 characters long.</p>
+                            </div>
+                            <div class="col-sm-2">
+                            </div>
+                        </div>
+
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
@@ -86,6 +97,21 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="font-weight-light">
+                                Password should be minimum 6 characters long and contain at least: <br/>
+                                One lowercase letter (e.g. 'a'), <br/>
+                                One uppercase letter (e.g. 'A'), <br/>
+                                One number (e.g. '1'), <br/>
+                                One symbol (e.g. '&').</p>
+                            </div>
+                            <div class="col-sm-2">
                             </div>
                         </div>
 
