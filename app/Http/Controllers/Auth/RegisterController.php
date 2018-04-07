@@ -49,8 +49,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
+            'first_name' => 'required|string|max:255|',
+            'last_name' => 'required|string|max:255|',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -61,10 +63,26 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
+
+    function uniqidReal($lenght = 13) {
+        // uniqid gives 13 chars, but you could adjust it to your needs.
+        if (function_exists("random_bytes")) {
+            $bytes = random_bytes(ceil($lenght / 2));
+        } elseif (function_exists("openssl_random_pseudo_bytes")) {
+            $bytes = openssl_random_pseudo_bytes(ceil($lenght / 2));
+        } else {
+            throw new Exception("no cryptographically secure random function available");
+        }
+        return substr(bin2hex($bytes), 0, $lenght);
+    }
+
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'user_id' => $this->uniqidReal(),
+            'username' => $data['username'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
