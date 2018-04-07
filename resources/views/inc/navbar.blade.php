@@ -26,14 +26,11 @@
 <!-- NAVIGATION BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a href="/index" id="linkid" class="navbar-brand">LOZODA </a>
+    <a href="/index" id="linkid" class="navbar-brand">Lozoda</a>
         <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="navbar-item">
-                 <a href="/items" class="nav-link" id="linkid">ITEMS </a>
-            </li>
-            <li class="navbar-item">
-            <a href="/register" class="nav-link" id="linkid">REGISTER </a>
+                 <a href="/items" class="nav-link" id="linkid">Items</a>
             </li>
         </ul>
         </div>
@@ -45,8 +42,9 @@
     <form class="form-inline" action="login" method="post"  style="float:right">
            <input type="text" name="email" class="form-control mr-sm-2"  placeholder="Username" aria-label="Username">
            <input type="password" name="password" class="form-control mr-sm-2"  placeholder="Password" aria-label="Password">
-           <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit" value="login">LOGIN</button>
-</form> 
+
+
+    </form>
        {{--  <a href="/register"> REGISTER </a>
            if may session 
             <li> get user name + cart </li>

@@ -3,16 +3,8 @@
 <link href="{{ asset('css/body.css') }}" rel="stylesheet"> 
 @endsection
 @section('content')
-
-<div id="photos">
-            
-            <? for( $n=0; $n<4; $n++){ ?>
-           
-                <a href="index.jsp"> <img src=""> </a>
-            
-                <? } ?>
-        
-    
-        </div>
-
+    <div class="jumbotron text-center">
+        <h1>Welcome to Lozoda!</h1>
+        <p>Buy all of your essentials here! To get started, please log in.</p>
+    </div>
 @endsection
