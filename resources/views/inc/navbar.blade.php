@@ -24,11 +24,11 @@
 
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        <a href="/index" id="linkid" class="navbar-brand">Lozoda</a>
+        <a href="/index" id="linkid" class="navbar-brand" style="font-size:30px;color:#468499">Lozoda</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="navbar-item">
-                    <a href="/items" class="nav-link" id="linkid">Items</a>
+                    <a href="/items"  style="font-size:20px;" class="nav-link" id="linkid">Items</a>
                 </li>
             </ul>
         </div>
@@ -43,8 +43,8 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                    <li><a class="nav-link"  style="font-size:20px;"href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                    <li><a class="nav-link"  style="font-size:20px;" href="{{ route('register') }}">{{ __('Register') }}</a></li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

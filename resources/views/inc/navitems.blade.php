@@ -24,7 +24,7 @@
 
 
 <!-- NAVIGATION BAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
 
    
         <div class="collapse navbar-collapse" style="font-size:20px">
@@ -46,11 +46,18 @@
                  <a href="/items" class="nav-link" id="linkid">Jackets and Hoodies</a>
             </li>
         </ul>
+       
+            
         </div>
         </div>
         
-
-
+        <form class="form-inline" action="login" method="post" style="font-size:25px">
+        
+           <input type="text" name="search" class="form-control mr-sm-2"  placeholder="Search" aria-label="Username">
+           <button class="btn btn-outline-success" type="submit" value="search">Search</button>
+         
+    </form>
+    <a href="/cart" class="navbar-left"> <img src="public/img/cart.png" style="float:right; margin-left:5px;"> </a>
     
 </nav>
 

@@ -26,6 +26,11 @@ Route::get('/items', function () {
 Route::get('/register', function () {
     return view('pages/register');
 });
+
+Route::get('/cart', function () {
+    return view('pages/cart');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
