@@ -26,33 +26,32 @@
 <!-- NAVIGATION BAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a href="/index" id="linkid" class="navbar-brand" style="font-size:30px">Lozoda</a>
-        <div class="collapse navbar-collapse">
+   
+        <div class="collapse navbar-collapse" style="font-size:20px">
+        <div style="margin-left:20px">
         <ul class="navbar-nav mr-auto">
             <li class="navbar-item">
-                 <a href="/items" class="nav-link" id="linkid" style="font-size:25px">Items</a>
+                 <a href="/index" id="linkid" class="nav-link">All</a>
+            </li>
+            <li class="navbar-item">
+            <a href="/items" class="nav-link" id="linkid">Top</a>
+            </li>
+            <li class="navbar-item">
+                 <a href="/items" class="nav-link" id="linkid">Pants</a>
+            </li>
+            <li class="navbar-item">
+                 <a href="/items" class="nav-link" id="linkid">Shorts</a>
+            </li>
+            <li class="navbar-item">
+                 <a href="/items" class="nav-link" id="linkid">Jackets and Hoodies</a>
             </li>
         </ul>
         </div>
+        </div>
         
 
-        
-{{-- LOGIN STUFF --}}
 
-    <form class="form-inline" action="login" method="post" style="font-size:25px">
-           <input type="text" name="email" class="form-control mr-sm-2"  placeholder="Username" aria-label="Username">
-           <input type="password" name="password" class="form-control mr-sm-2"  placeholder="Password" aria-label="Password">
-           <button class="btn btn-light my-2 my-sm-0" type="submit" value="login">Login</button>
-         
-    </form>
     
-      <a href="/register" class="btn btn-light my-2 my-sm-0" style="margin-left:4px;" > Signup </a>
-         
-       {{-- 
-           if may session 
-            <li> get user name + cart </li>
-            --}}
-
 </nav>
 
        
