@@ -30,6 +30,15 @@ Route::get('/register', function () {
 Route::get('/cart', function () {
     return view('pages/cart');
 });
+Route::get('/products', function () {
+    return view('pages/adminproduct');
+});
+Route::get('/purchases', function () {
+    return view('pages/adminpurchases');
+});
+Route::get('/newadmin', function () {
+    return view('pages/admincreate');
+});
 
 Auth::routes();
 
