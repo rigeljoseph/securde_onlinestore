@@ -29,16 +29,19 @@ Route::get('/register', function () {
 
 Route::get('/cart', function () {
     return view('pages/cart');
-});
+})->name('cart');
+
 Route::get('/products', function () {
     return view('pages/adminproduct');
-});
+})->name('products');
+
 Route::get('/purchases', function () {
     return view('pages/adminpurchases');
-});
+})->name('purchases');
+
 Route::get('/newadmin', function () {
     return view('auth/createadmin');
-});
+})->name('newadmin');
 
 Auth::routes();
 
