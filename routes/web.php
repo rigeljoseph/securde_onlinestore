@@ -17,11 +17,11 @@ Route::get('/', function () {
 
 Route::get('/index', function () {
     return view('pages/index');
-});
+})->name('index');
 
 Route::get('/items', function () {
     return view('pages/items');
-});
+})->name('items');
 
 Route::get('/register', function () {
     return view('pages/register');

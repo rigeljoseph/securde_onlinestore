@@ -24,11 +24,11 @@
 
 <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
     <div class="container">
-        <a href="/index" id="linkid" class="navbar-brand" style="font-size:30px;color:#468499">Lozoda</a>
+        <a href="{{ route('index') }}" id="linkid" class="navbar-brand" style="font-size:30px;color:#468499">Lozoda</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="navbar-item">
-                    <a href="/items"  style="font-size:20px;" class="nav-link" id="linkid">Items</a>
+                    <a href="{{ route('items') }}"  style="font-size:20px;" class="nav-link" id="linkid">Items</a>
                 </li>
             </ul>
         </div>
