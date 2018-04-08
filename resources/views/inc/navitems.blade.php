@@ -57,8 +57,7 @@
            <button class="btn btn-outline-success" type="submit" value="search">Search</button>
          
     </form>
-    <a href="/cart" class="navbar-left"> <img src="public/img/cart.png" style="float:right; margin-left:5px;"> </a>
-    
+ 
 </nav>
 
        
