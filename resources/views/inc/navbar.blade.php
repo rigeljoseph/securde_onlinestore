@@ -45,6 +45,33 @@
                 @guest
                     <li><a class="nav-link"  style="font-size:20px;"href="{{ route('login') }}">{{ __('Login') }}</a></li>
                     <li><a class="nav-link"  style="font-size:20px;" href="{{ route('register') }}">{{ __('Register') }}</a></li>
+                @elseif(Auth::user()->user_type_id == 2)
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <b>Admin</b> {{ Auth::user()->username }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('newadmin') }}">
+                                {{ __('Create Admin Account') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('products') }}">
+                                {{ __('Add/Edit Products') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('purchases') }}">
+                                {{ __('View/Edit Purchases') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
