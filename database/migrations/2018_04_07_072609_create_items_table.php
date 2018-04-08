@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             $table->integer('category_id');
             $table->string('name');
             $table->string('description');
+            $table->string('photo');
             $table->float('price');
             $table->timestamps();
         });
