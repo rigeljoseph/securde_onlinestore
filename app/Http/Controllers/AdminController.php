@@ -83,7 +83,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 
     public function promoteToAdmin($id){
@@ -92,5 +92,12 @@ class AdminController extends Controller
         $user->save();
 
         return redirect('/admin')->with('success', 'User Promoted');
+    }
+
+    public function removeUser($id){
+        $user = User::where('user_id',$id)->first();
+        $user->delete();
+
+        return redirect('/admin')->with('success', 'User Deleted');
     }
 }

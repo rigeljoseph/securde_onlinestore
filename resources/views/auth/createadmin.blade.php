@@ -29,7 +29,7 @@
                         @else
                             <td></td>
                         @endif
-                        <td><button type="button" href="" class="btn btn-outline-danger">Delete</button></td><!--Reject order-->
+                        <td><button type="button" onclick="location.href='{{action('AdminController@removeUser', ['email' => $user->user_id])}}'" class="btn btn-outline-danger">Delete</button></td><!--Reject order-->
                     </tr>
                     @endforeach
                 @else

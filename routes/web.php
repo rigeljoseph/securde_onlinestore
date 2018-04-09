@@ -57,6 +57,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/promote/{email}', 'AdminController@promoteToAdmin')->name('promote');
+Route::get('/admin/promote/{email}', 'AdminController@promoteToAdmin')->name('promote');
+
+Route::get('/admin/delete/{email}', 'AdminController@removeUser')->name('delete');
 
 Route::resource('admin', 'AdminController');
