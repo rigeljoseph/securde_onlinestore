@@ -65,4 +65,11 @@ Route::get('/admin/products/delete/{sku}', 'AdminController@removeProduct')->nam
 
 Route::get('/admin/products/', 'AdminController@viewAllProducts')->name('product_view');
 
+
+Route::get('/items', 'ItemsController@viewAll')->name('items');
+Route::get('/items/top', 'ItemsController@viewTop')->name('top');
+Route::get('/items/pants', 'ItemsController@viewPants')->name('pants');
+Route::get('/items/shorts', 'ItemsController@viewTop')->name('shorts');
+Route::get('/items/hoodies', 'ItemsController@viewPants')->name('hoodies');
+
 Route::resource('admin', 'AdminController');
