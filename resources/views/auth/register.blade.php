@@ -29,7 +29,9 @@
                             </div>
                             <div class="col-sm-6">
                                 <p class="font-weight-light">
-                                    Username should be 3 to 20 characters long.</p>
+                                    Username should be 3 to 20 characters long. <br>
+                                    No special characters allowed (e.g. *, &, <, >).
+                                </p>
                             </div>
                             <div class="col-sm-2">
                             </div>
