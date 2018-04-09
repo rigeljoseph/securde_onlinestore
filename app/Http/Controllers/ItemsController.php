@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
+use Request;
 use App\Category;
 
 use App\Item;
@@ -51,6 +51,17 @@ class ItemsController extends Controller
 
         return view('pages.items')->with('items', $items);
     }
+    public function search()
+    {
+        $item= Request::input('input');
+
+        $items = Item::where('name',$item )
+                    ->orWhere('photo',$item )->get();
+
+
+        return view('pages.items')->with('items', $items);
+    }
+
 
     /**
      * Show the form for creating a new resource.

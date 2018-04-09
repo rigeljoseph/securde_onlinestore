@@ -73,5 +73,7 @@ Route::resource('item', 'ItemsController');
 Route::get('/items', 'ItemsController@viewAll')->name('items');
 Route::get('/items/top', 'ItemsController@viewTop')->name('top');
 Route::get('/items/pants', 'ItemsController@viewPants')->name('pants');
-Route::get('/items/shorts', 'ItemsController@viewTop')->name('shorts');
+Route::get('/items/shorts', 'ItemsController@viewShorts')->name('shorts');
 Route::get('/items/hoodies', 'ItemsController@viewPants')->name('hoodies');
+
+Route::get('/items/search/', 'ItemsController@search')->name('search');

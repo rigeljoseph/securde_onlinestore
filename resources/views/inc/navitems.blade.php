@@ -51,9 +51,9 @@
         </div>
         </div>
         
-        <form class="form-inline" action="login" method="post" style="font-size:25px">
+        <form action="{{ route('search') }}" class="form-inline" method="GET" style="font-size:25px">
         
-           <input type="text" name="search" class="form-control mr-sm-2"  placeholder="Search" aria-label="Username">
+           <input type="text" name="input" class="form-control mr-sm-2"  placeholder="Search" aria-label="Username">
            <button class="btn btn-outline-success" type="submit" value="search">Search</button>
          
     </form>
