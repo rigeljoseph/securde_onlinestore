@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class ItemsController extends Controller
 {
@@ -23,7 +24,13 @@ class ItemsController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        return view('pages.itemcreate')->with('categories', $categories);
     }
 
     /**

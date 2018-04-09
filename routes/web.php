@@ -66,3 +66,6 @@ Route::get('/admin/products/delete/{sku}', 'AdminController@removeProduct')->nam
 Route::get('/admin/products/', 'AdminController@viewAllProducts')->name('product_view');
 
 Route::resource('admin', 'AdminController');
+
+Route::resource('item', 'ItemsController');
+

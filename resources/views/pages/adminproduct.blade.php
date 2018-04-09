@@ -8,7 +8,7 @@
           <div class="card-header">{{ __('Item List') }}</div>
 
           <div class="card-body">
-              <button type="button" onclick="" class="btn btn-secondary">Create Item</button>
+              <button type="button" onclick="location.href='{{action('ItemsController@create')}}'" class="btn btn-secondary">Create Item</button>
 
               <div class="p-2"></div>
             <table class="table">
@@ -34,7 +34,7 @@
                 @endforeach
                 </tbody>
                 @else
-                    There are no users
+                    There are no items
                 @endif
             </table>
 
