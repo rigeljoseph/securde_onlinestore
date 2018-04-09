@@ -14,9 +14,21 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
         $users = User::all();
+
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
         return view('auth.createadmin')->with('users', $users);
     }
 
@@ -87,6 +99,10 @@ class AdminController extends Controller
     }
 
     public function promoteToAdmin($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+        
         $user = User::where('user_id',$id)->first();
         $user->user_type_id = 2;
         $user->save();
@@ -95,6 +111,10 @@ class AdminController extends Controller
     }
 
     public function removeUser($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
         $user = User::where('user_id',$id)->first();
         $user->delete();
 
