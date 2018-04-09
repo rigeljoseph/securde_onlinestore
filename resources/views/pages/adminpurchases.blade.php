@@ -10,7 +10,7 @@
 <div class="col-md-8">
   <!-- Your first column here -->
   <table class="table">
-  <thead class="thead-dark">
+  <thead class="table-primary">
     <tr>
       <th scope="col">Purchase ID</th>
       <th scope="col">Customer Name</th>

@@ -9,7 +9,7 @@
 <div class="col-md-8">
   <!-- Your first column here -->
   <table class="table">
-  <thead class="thead-dark">
+  <thead class="table-primary">
     <tr>
       <th scope="col">Items</th>
       <th scope="col">Price</th>
@@ -42,7 +42,7 @@
 <div class="col-md-4">
   <!-- Your second column here -->
   <table class="table" >
-  <thead class="thead-dark">
+  <thead class="table-primary">
     <tr>
       <th scope="col">ORDER SUMMARY</th>
       <th scope="col"></th>
