@@ -85,4 +85,12 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function promoteToAdmin($id){
+        $user = User::where('user_id',$id)->first();
+        $user->user_type_id = 2;
+        $user->save();
+
+        return redirect('/admin')->with('success', 'User Promoted');
+    }
 }

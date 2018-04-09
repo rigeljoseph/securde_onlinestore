@@ -52,8 +52,8 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('newadmin') }}">
-                                {{ __('Create Admin Account') }}
+                            <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                {{ __('View/Edit Users') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('products') }}">
                                 {{ __('Add/Edit Products') }}
