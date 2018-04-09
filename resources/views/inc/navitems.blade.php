@@ -24,26 +24,26 @@
 
 
 <!-- NAVIGATION BAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
 
    
         <div class="collapse navbar-collapse" style="font-size:20px">
         <div style="margin-left:20px">
         <ul class="navbar-nav mr-auto">
             <li class="navbar-item">
-                 <a href="/index" id="linkid" class="nav-link">All</a>
+                 <a href="{{ route('items') }}"  id="linkid" class="nav-link">All</a>
             </li>
             <li class="navbar-item">
-            <a href="/items" class="nav-link" id="linkid">Top</a>
+            <a href="{{ route('top') }}"  class="nav-link" id="linkid">Top</a>
             </li>
             <li class="navbar-item">
-                 <a href="/items" class="nav-link" id="linkid">Pants</a>
+                 <a href="{{ route('pants') }}"  class="nav-link" id="linkid">Pants</a>
             </li>
             <li class="navbar-item">
-                 <a href="/items" class="nav-link" id="linkid">Shorts</a>
+                 <a href="{{ route('shorts') }}"  class="nav-link" id="linkid">Shorts</a>
             </li>
             <li class="navbar-item">
-                 <a href="/items" class="nav-link" id="linkid">Jackets and Hoodies</a>
+                 <a href="{{ route('hoodies') }}"  class="nav-link" id="linkid">Jackets and Hoodies</a>
             </li>
         </ul>
        

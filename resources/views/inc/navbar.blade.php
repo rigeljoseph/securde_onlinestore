@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+<nav class="navbar navbar-expand-md navbar-light navbar-laravel" >
     <div class="container">
         <a href="{{ route('index') }}" id="linkid" class="navbar-brand" style="font-size:30px;color:#468499">Lozoda</a>
         <div class="collapse navbar-collapse">
