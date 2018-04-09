@@ -134,4 +134,15 @@ class AdminController extends Controller
     public function editProductData(){
 
     }
+
+    public function removeProduct($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $item = Item::where('item_id',$id)->first();
+        $item->delete();
+
+        return redirect('/admin/products')->with('success', 'Item Deleted');
+    }
 }

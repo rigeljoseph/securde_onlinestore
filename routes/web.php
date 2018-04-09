@@ -61,6 +61,8 @@ Route::get('/admin/promote/{email}', 'AdminController@promoteToAdmin')->name('pr
 
 Route::get('/admin/delete/{email}', 'AdminController@removeUser')->name('delete');
 
+Route::get('/admin/products/delete/{sku}', 'AdminController@removeProduct')->name('remove_product');
+
 Route::get('/admin/products/', 'AdminController@viewAllProducts')->name('product_view');
 
 Route::resource('admin', 'AdminController');
