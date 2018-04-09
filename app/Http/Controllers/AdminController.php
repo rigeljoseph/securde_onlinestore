@@ -120,4 +120,18 @@ class AdminController extends Controller
 
         return redirect('/admin')->with('success', 'User Deleted');
     }
+
+    public function viewAllProducts(){
+        $items = Item::has('category')->get();
+
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        return view('pages.adminproduct')->with('items', $items);
+    }
+
+    public function editProductData(){
+
+    }
 }

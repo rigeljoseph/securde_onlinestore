@@ -13,6 +13,6 @@ class Category extends Model
     public $timestamps = true;
 
     public function item(){
-        return $this->belongsTo('App\Item');
+        return $this->hasMany('App\Item', 'category_id');
     }
 }

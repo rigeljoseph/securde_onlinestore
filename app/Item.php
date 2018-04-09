@@ -12,7 +12,7 @@ class Item extends Model
 
     protected $keyType = "string";
 
-    protected $incrementing = false;
+    public $incrementing = false;
 
     public $timestamps = true;
 
@@ -29,6 +29,6 @@ class Item extends Model
     }
 
     public function category(){
-        return $this->hasOne('App\Category');
+        return $this->belongsTo('App\Category', 'category_id');
     }
 }

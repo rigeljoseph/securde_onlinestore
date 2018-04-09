@@ -55,7 +55,7 @@
                             <a class="dropdown-item" href="{{ route('admin.index') }}">
                                 {{ __('View/Edit Users') }}
                             </a>
-                            <a class="dropdown-item" href="{{ route('products') }}">
+                            <a class="dropdown-item" href="{{ route('product_view') }}">
                                 {{ __('Add/Edit Products') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('purchases') }}">
