@@ -14,7 +14,8 @@
                         <th scope="col">Username</th>
                         <th scope="col">Full Name</th>
                         <th scope="col">Email</th>
-                        <th></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -23,7 +24,8 @@
                         <th scope="row">{{$user->username}}</th>  <!-- insert from cart loop-->
                         <td>{{$user->first_name}} {{$user->last_name}}</td>
                         <td>{{$user->email}}</td>
-                        <td><button type="button" class="btn btn-outline-success">Promote To Admin</button></td>  <!--Reject order-->
+                        <td><button type="button" class="btn btn-outline-success">Promote</button></td>
+                        <td><button type="button" class="btn btn-outline-danger">Delete</button></td><!--Reject order-->
                     </tr>
                     @endforeach
                 @else
