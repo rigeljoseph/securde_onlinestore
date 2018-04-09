@@ -32,6 +32,15 @@ class ResetPasswordController extends Controller
      *
      * @return void
      */
+
+    public function rules(){
+        return [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|string|min:6|case_diff|numbers|letters|symbols|confirmed',
+        ];
+    }
+
     public function __construct()
     {
         $this->middleware('guest');

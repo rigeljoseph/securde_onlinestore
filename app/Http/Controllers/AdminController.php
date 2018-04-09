@@ -102,7 +102,7 @@ class AdminController extends Controller
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
-        
+
         $user = User::where('user_id',$id)->first();
         $user->user_type_id = 2;
         $user->save();
