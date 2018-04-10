@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
+use App\Item;
 class InventoriesController extends Controller
 {
     /**
@@ -11,6 +13,17 @@ class InventoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     
+    public function display($search)
+    {
+      
+        $items = Item::where('item_id', $search )->get();
+        
+       
+
+        return view('pages.display')->with('items', $items);
+    }
     public function index()
     {
         //
