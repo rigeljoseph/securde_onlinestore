@@ -77,3 +77,4 @@ Route::get('/items/shorts', 'ItemsController@viewShorts')->name('shorts');
 Route::get('/items/hoodies', 'ItemsController@viewPants')->name('hoodies');
 
 Route::get('/items/search/', 'ItemsController@search')->name('search');
+Route::get('/display/{search}', 'InventoriesController@display')->name('display');

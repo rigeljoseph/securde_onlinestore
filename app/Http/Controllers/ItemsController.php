@@ -61,7 +61,15 @@ class ItemsController extends Controller
 
         return view('pages.items')->with('items', $items);
     }
+    public function display($search)
+    {
+        $item= Request::input('$search');
+        $items = Item::where('item_id', $search )->get();
+        
+       
 
+        return view('pages.display')->with('items', $items);
+    }
 
     /**
      * Show the form for creating a new resource.

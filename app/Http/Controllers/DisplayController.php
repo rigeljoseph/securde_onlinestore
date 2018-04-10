@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Category;
 
 use App\Item;
-class InventoriesController extends Controller
+
+class ItemsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-     
+   
+    
     public function display($search)
     {
       
@@ -24,10 +26,6 @@ class InventoriesController extends Controller
 
         return view('pages.display')->with('items', $items);
     }
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +34,13 @@ class InventoriesController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        return view('pages.itemcreate')->with('categories', $categories);
     }
 
     /**
@@ -93,5 +97,12 @@ class InventoriesController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function items()
+    {
+        $items = Item::all();
+
+
+        return view('items')->with('items', $items);
     }
 }
