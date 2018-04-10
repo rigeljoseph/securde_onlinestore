@@ -19,9 +19,6 @@ Route::get('/index', function () {
     return view('pages/index');
 })->name('index');
 
-Route::get('/items', function () {
-    return view('pages/items');
-})->name('items');
 
 Route::get('/register', function () {
     return view('pages/register');
@@ -72,11 +69,11 @@ Route::resource('admin', 'AdminController');
 
 Route::resource('item', 'ItemsController');
 
-Route::get('/items', 'ItemsController@viewAll')->name('items');
-Route::get('/items/top', 'ItemsController@viewTop')->name('top');
-Route::get('/items/pants', 'ItemsController@viewPants')->name('pants');
-Route::get('/items/shorts', 'ItemsController@viewShorts')->name('shorts');
-Route::get('/items/hoodies', 'ItemsController@viewPants')->name('hoodies');
+Route::get('/items', 'UsersController@viewAll')->name('items');
+Route::get('/items/top', 'UsersController@viewTop')->name('top');
+Route::get('/items/pants', 'UsersController@viewPants')->name('pants');
+Route::get('/items/shorts', 'UsersController@viewShorts')->name('shorts');
+Route::get('/items/hoodies', 'UsersController@viewPants')->name('hoodies');
 
-Route::get('/items/search/', 'ItemsController@search')->name('search');
+Route::get('/items/search/', 'UsersController@search')->name('search');
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');
