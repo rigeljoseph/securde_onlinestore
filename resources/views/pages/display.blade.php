@@ -26,17 +26,27 @@
 </div>
 
 
-<div class="col-md-4" style="margin-top:200px; ">
+<div class="col-md-4" style="margin-top:50px; ">
   <!-- Your first column here -->
-  <table class="table"style="border:0;" >
+  <table class="table" >
 
-  <tbody>
+  <thead class="table-primary">
     <tr>
-      <th scope="row"><center>{{$items->name}} - P{{$items->price}}</center></th>  <!-- insert from cart loop-->
+      <th scope="row"><center><p class="text-uppercase" style=" font-size: 35px;">{{$items->name}} </p></center></th>  <!-- insert from cart loop-->
    
   </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row"><center><p class="text-uppercase font-weight-normal" style=" font-size: 20px;"> P {{$items->price}}</p></center></th>
+    
+    </tr>
     <tr>
-      <th scope="row"><center>{{$items->description}}</center></th>
+      <th scope="row"><center><p class="text-uppercase font-weight-normal" style=" font-size: 20px;">{{$items->description}}</p></center></th>
+    
+    </tr>
+    <tr>
+      <th scope="row"><center><button class="btn btn-primary btn-md font-weight-normal" style=" font-size: 20px;">Add to Cart</button></center></th>
     
     </tr>
 
