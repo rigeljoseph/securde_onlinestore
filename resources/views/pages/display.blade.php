@@ -46,7 +46,33 @@
     
     </tr>
     <tr>
-      <th scope="row"><center><button class="btn btn-info btn-md font-weight-normal" style=" font-size: 20px; background-color:#B8DAFF; color:black;">Add to Cart</button></center></th>
+      <th scope="row"  class="text-uppercase font-weight-normal" style=" font-size: 20px;"><center>AMOUNT TO PUCHASE: <input type = "number" min="0"style=" font-size: 20px; width:50px;"></input>
+</center></th>
+    
+    </tr>
+    <tr>
+      <th scope="row"><center><button class="btn btn-info btn-md font-weight-normal" 
+      data-toggle="modal" data-target="#exampleModal" 
+      style=" font-size: 20px; background-color:#B8DAFF; color:black;">Add to Cart</button></center></th>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    
+      <div class="modal-footer">
+      <button type="button" class="btn btn-success">YES</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
     
     </tr>
 
