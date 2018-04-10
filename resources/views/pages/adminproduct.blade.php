@@ -15,8 +15,8 @@
                 @if(count($items) > 0)
                 <thead class="table-primary">
                 <tr>
-                  <th scope="col">SKU</th>
-                  <th scope="col">Item</th>
+                  <th scope="col">Product ID</th>
+                  <th scope="col">Name</th>
                   <th scope="col">Category</th>
                   <th scope="col">Price</th>
                   <th scope="col"></th>
@@ -29,7 +29,7 @@
                     <td scope="col">{{$item->item_id}}</td>
                     <td scope="col">{{$item->name}}</td>
                     <td scope="col">{{$item->category->category}}</td>
-                    <td scope="col">{{$item->price}}</td>
+                    <td scope="col">{{$item->price}} PHP</td>
 
                     <td scope="col"><button type="button" onclick="location.href='{{action('AdminController@editProductData', ['id' => $item->item_id])}}'" class="btn btn-success">Edit</button></td>
                     <td scope="col"><button type="button" onclick="location.href='{{action('AdminController@removeProduct', ['id' => $item->item_id])}}'" class="btn btn-danger">Delete</button></td>
