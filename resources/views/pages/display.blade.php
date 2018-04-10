@@ -46,7 +46,7 @@
     
     </tr>
     <tr>
-      <th scope="row"><center><button class="btn btn-primary btn-md font-weight-normal" style=" font-size: 20px;">Add to Cart</button></center></th>
+      <th scope="row"><center><button class="btn btn-info btn-md font-weight-normal" style=" font-size: 20px; background-color:#B8DAFF; color:black;">Add to Cart</button></center></th>
     
     </tr>
 
