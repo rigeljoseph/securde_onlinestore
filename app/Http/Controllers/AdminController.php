@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Item;
+use App\Category;
 use App\Inventory;
 use App\Invoice;
 
@@ -132,14 +133,23 @@ class AdminController extends Controller
         return view('pages.adminproduct',['items' => $items]);
     }
 
-    public function editProductData(){
+    public function editProductData($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
 
+        $item = Item::where('item_id',$id)->first();
+        $categories = Category::all();
+
+        return view('pages.admineditproduct', ['item' => $item, 'categories' => $categories]);
     }
 
     public function removeProduct($id){
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
+
+
 
         $item = Item::where('item_id',$id)->first();
         $item->delete();

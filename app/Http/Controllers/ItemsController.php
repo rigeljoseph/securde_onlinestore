@@ -98,8 +98,8 @@ class ItemsController extends Controller
 
         $this->validate($request, [
             'item_id' => 'required|alpha_num|unique:items',
-            'name' => 'required|alpha|string',
-            'description' => 'required|string|alpha_num',
+            'name' => 'required|string',
+            'description' => 'required|string',
             'price' => 'required|numeric',
             'category' => 'required|alpha_num',
         ]);
@@ -118,8 +118,6 @@ class ItemsController extends Controller
         $inventory->item_id = $request->input('item_id');
         $inventory->status_id = 1;
         $inventory->save();
-
-        return Inventory::all();
 
         return redirect('/admin/products')->with('success', 'Item Added');
     }
@@ -155,7 +153,25 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'item_id' => 'required|alpha_num|',
+            'name' => 'required|string',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'category' => 'required|alpha_num',
+        ]);
+
+        // update item
+
+        $item = Item::find($id);
+        $item->item_id = $request->input('item_id');
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->price = $request->input('price');
+        $item->category_id = $request->input('category');
+        $item->save();
+
+        return redirect('/admin/products')->with('success', 'Item Updated');
     }
 
     /**
