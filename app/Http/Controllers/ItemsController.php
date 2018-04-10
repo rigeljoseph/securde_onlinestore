@@ -96,6 +96,10 @@ class ItemsController extends Controller
     public function store(Request $request)
     {
 
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
         $this->validate($request, [
             'item_id' => 'required|alpha_num|unique:items',
             'name' => 'required|string',
@@ -153,6 +157,10 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
         $this->validate($request, [
             'item_id' => 'required|alpha_num|',
             'name' => 'required|string',
