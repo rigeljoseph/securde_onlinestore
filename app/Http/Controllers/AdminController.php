@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Item;
+use App\Inventory;
 use App\Invoice;
 
 class AdminController extends Controller
@@ -128,7 +129,7 @@ class AdminController extends Controller
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
 
-        return view('pages.adminproduct')->with('items', $items);
+        return view('pages.adminproduct',['items' => $items]);
     }
 
     public function editProductData(){

@@ -18,6 +18,7 @@
                   <th scope="col">SKU</th>
                   <th scope="col">Item</th>
                   <th scope="col">Category</th>
+                  <th scope="col">Price</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
                 </tr>
@@ -28,6 +29,8 @@
                     <td scope="col">{{$item->item_id}}</td>
                     <td scope="col">{{$item->name}}</td>
                     <td scope="col">{{$item->category->category}}</td>
+                    <td scope="col">{{$item->price}}</td>
+
                     <td scope="col"><button type="button" onclick="" class="btn btn-success">Edit</button></td>
                     <td scope="col"><button type="button" onclick="location.href='{{action('AdminController@removeProduct', ['id' => $item->item_id])}}'" class="btn btn-danger">Delete</button></td>
                 </tr>

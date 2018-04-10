@@ -70,13 +70,17 @@
                                 <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                                 <div class="col-md-6">
-                                    <select class="form-control" id="category">
+                                    <select class="form-control" name="category" id="category">
                                         @foreach($categories as $category)
-                                            <option>{{$category->category}}</option>
+                                            <option value="{{$category->category_id}}">{{$category->category}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
+
+                            <!-- @foreach($categories as $category)
+                                <option >{{$category->category}}</option>
+                            @endforeach -->
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 
-use Request;
+use Illuminate\Http\Request;
 use App\Category;
-
+use App\Inventory;
 use App\Item;
 
 class ItemsController extends Controller
@@ -53,7 +53,7 @@ class ItemsController extends Controller
     }
     public function search()
     {
-        $item= Request::input('input');
+        $item = Request::input('input');
 
         $items = Item::where('name',$item )
                     ->orWhere('photo',$item )->get();
@@ -87,7 +87,33 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'item_id' => 'required|alpha_num|unique:items',
+            'name' => 'required|alpha|string',
+            'description' => 'required|string|alpha_num',
+            'price' => 'required|numeric',
+            'category' => 'required|alpha_num',
+        ]);
+
+        // create item
+
+        $item = new Item;
+        $item->item_id = $request->input('item_id');
+        $item->name = $request->input('name');
+        $item->description = $request->input('description');
+        $item->price = $request->input('price');
+        $item->category_id = $request->input('category');
+        $item->save();
+
+        $inventory = new Inventory;
+        $inventory->item_id = $request->input('item_id');
+        $inventory->status_id = 1;
+        $inventory->save();
+
+        return Inventory::all();
+
+        return redirect('/admin/products')->with('success', 'Item Added');
     }
 
     /**
