@@ -101,12 +101,12 @@ class ItemsController extends Controller
         }
 
         $this->validate($request, [
-            'item_id' => 'required|alpha_num|unique:items',
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
+            'item_id' => 'required|alpha_num|max:40|unique:items',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'price' => 'required|numeric|max:2000000000',
             'category' => 'required|alpha_num',
-            'photo' => 'image|max:1999'
+            'photo' => 'required|image|max:1999',
         ]);
 
         // Get filename with extension
@@ -182,10 +182,10 @@ class ItemsController extends Controller
         }
 
         $this->validate($request, [
-            'item_id' => 'required|alpha_num|',
-            'name' => 'required|string',
-            'description' => 'required|string',
-            'price' => 'required|numeric',
+            'item_id' => 'required|alpha_num|max:40|unique:items',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'price' => 'required|numeric|max:2000000000',
             'category' => 'required|alpha_num',
         ]);
 
