@@ -70,6 +70,8 @@ Route::get('/admin/purchases/undo/{id}', 'AdminController@setInvoiceUnfulfilled'
 
 Route::get('/user/edit/{id}', 'UsersController@edit')->name('user_info');
 
+Route::get('/user/edit/{id}/addresses/', 'UsersController@viewUserAddresses')->name('user_addresses');
+
 Route::put('/user/edit/submit/{users}', 'UsersController@update')->name('confirm_edit_user');
 
 

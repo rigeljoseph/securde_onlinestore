@@ -164,4 +164,8 @@ class UsersController extends Controller
     {
         //
     }
+
+    public function viewUserAddresses($id){
+        return 123;
+    }
 }
