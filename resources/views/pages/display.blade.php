@@ -46,8 +46,11 @@
       <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Description: {{$items->description}}</p></center></th>
     
     </tr>
-   
+    @guest  
+    
+      @else
     <tr>
+    
       <th scope="row"><center><button class="btn btn-info btn-md font-weight-normal" 
       data-toggle="modal" data-target="#exampleModal" 
       style=" font-size: 20px; background-color:#B8DAFF; color:black;">Add to Cart</button></center></th>
@@ -62,11 +65,13 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-    
+     
       <div class="modal-footer">
+     
       <button type="button" class="btn btn-success" >
       <a href="/cart/{{ $items->item_id }}/{{ Auth::user()->username}}" style="color:white; text-decoration:none;"> YES </a> </button>
       <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
+      @endif
       </div>
     </div>
   </div>
