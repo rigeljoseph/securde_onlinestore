@@ -46,9 +46,7 @@
       <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Description: {{$items->description}}</p></center></th>
     
     </tr>
-    @guest  
-    
-      @else
+  
     <tr>
     
       <th scope="row"><center><button class="btn btn-info btn-md font-weight-normal" 
@@ -60,7 +58,11 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
+      @guest
+      <h5 class="modal-title" id="exampleModalLabel">Login to Continue</h5>
+      @else
         <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+      @endif
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -68,10 +70,14 @@
      
       <div class="modal-footer">
      
-      <button type="button" class="btn btn-success" >
+      <button type="button" class="btn btn-success" > 
+      @guest  
+      <a href="/login" style="color:white; text-decoration:none;"> YES </a> </button>
+      @else
       <a href="/cart/{{ $items->item_id }}/{{ Auth::user()->username}}" style="color:white; text-decoration:none;"> YES </a> </button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
       @endif
+      <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
+      
       </div>
     </div>
   </div>
