@@ -8,7 +8,7 @@ use App\Category;
 
 use App\Item;
 
-class ItemsController extends Controller
+class DisplayController extends Controller
 {
     /**
      * Display a listing of the resource.
