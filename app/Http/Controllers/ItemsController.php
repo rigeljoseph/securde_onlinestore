@@ -182,7 +182,7 @@ class ItemsController extends Controller
         }
 
         $this->validate($request, [
-            'item_id' => 'required|alpha_num|max:40|unique:items',
+            'item_id' => 'required|alpha_num|max:40|',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
             'price' => 'required|numeric|max:2000000000',
