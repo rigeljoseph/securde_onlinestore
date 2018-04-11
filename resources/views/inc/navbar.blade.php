@@ -82,8 +82,8 @@
                             <a class="dropdown-item" href="{{ route('cart') }}">
                                 {{ __('View Shopping Cart') }}
                             </a>
-                            <a class="dropdown-item" href="{{ route('profile') }}">
-                                {{ __('Edit Profile') }}
+                            <a class="dropdown-item" href="{{ route('user_info', Auth::user()->user_id) }}">
+                                {{ __('Edit Information') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

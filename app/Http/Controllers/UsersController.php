@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Request;
-
+use Illuminate\Http\Request;
+use App\User;
 use App\Category;
+use App\Address;
 
 use App\Item;
 class UsersController extends Controller
@@ -112,7 +113,15 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        if(auth()->user()->user_id !== $id){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $user = User::where('user_id',$id)->first();
+
+        $addresses = Address::where('user_id', $id)->get();
+
+        return view('pages.editprofile', ['user' => $user, 'addresses' => $addresses]);
     }
 
     /**
@@ -124,7 +133,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if(auth()->user()->user_id !== $id){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $this->validate($request, [
+            'username' => 'required|string|min:3|max:20|regex:/(^([a-zA-Z]+)(\d+)?$)/u',
+            'email' => 'required|string|email|max:255|',
+            'first_name' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u',
+            'last_name' => 'required|string|max:255|regex:/^[\pL\s\-]+$/u',
+        ]);
+
+        $user = User::where('user_id',$id)->first();
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->save();
+
+        return redirect('/home')->with('success', 'Information Updated!');
     }
 
     /**

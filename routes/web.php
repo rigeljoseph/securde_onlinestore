@@ -46,10 +46,6 @@ Route::get('/newadmin', function () {
     for now it's /profile pag testing lang :)
 */
 
-Route::get('/profile', function(){
-    return "Hello this is profile route";
-})->name('profile');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -71,6 +67,10 @@ Route::get('/admin/purchases/reject/{id}', 'AdminController@setInvoiceFulfilled'
 Route::get('/admin/purchases/fulfill/{id}', 'AdminController@setInvoiceRejected')->name('purchase_reject');
 
 Route::get('/admin/purchases/undo/{id}', 'AdminController@setInvoiceUnfulfilled')->name('purchase_undo');
+
+Route::get('/user/edit/{id}', 'UsersController@edit')->name('user_info');
+
+Route::put('/user/edit/submit/{users}', 'UsersController@update')->name('confirm_edit_user');
 
 
 Route::resource('admin', 'AdminController');
