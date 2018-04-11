@@ -40,12 +40,6 @@ Route::get('/newadmin', function () {
     return view('auth/createadmin');
 })->name('newadmin');
 
-/*
-    for profile, you need a parameter
-    so pagimplement mo ng view for profile edit make sure the route link is '/profile/{id}', function($id)
-    for now it's /profile pag testing lang :)
-*/
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -73,7 +67,6 @@ Route::get('/user/edit/{id}', 'UsersController@edit')->name('user_info');
 Route::get('/user/edit/{id}/addresses/', 'UsersController@viewUserAddresses')->name('user_addresses');
 
 Route::put('/user/edit/submit/{users}', 'UsersController@update')->name('confirm_edit_user');
-
 
 Route::resource('admin', 'AdminController');
 

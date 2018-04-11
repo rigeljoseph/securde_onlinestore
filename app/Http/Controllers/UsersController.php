@@ -166,6 +166,12 @@ class UsersController extends Controller
     }
 
     public function viewUserAddresses($id){
-        return 123;
+        if(auth()->user()->user_id !== $id){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $addresses = Address::where('user_id', $id)->get();
+
+        return view('pages.useraddresses', ['addresses' => $addresses]);
     }
 }
