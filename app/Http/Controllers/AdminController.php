@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Item;
 use App\Category;
+use App\Address;
 use App\Inventory;
+
 use App\Invoice;
 
 class AdminController extends Controller
@@ -124,13 +126,23 @@ class AdminController extends Controller
     }
 
     public function viewAllProducts(){
-        $items = Item::has('category')->get();
+        $items = Item::all();
 
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
 
         return view('pages.adminproduct',['items' => $items]);
+    }
+
+    public function viewAllPurchases(){
+        $invoices = Invoice::all();
+        $addresses = Address::all();
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        return view('pages.adminpurchases',['invoices' => $invoices, 'addresses' => $addresses]);
     }
 
     public function editProductData($id){
@@ -155,5 +167,41 @@ class AdminController extends Controller
         $item->delete();
 
         return redirect('/admin/products')->with('success', 'Item Deleted');
+    }
+
+    public function setInvoiceFulfilled($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $invoice = Invoice::where('invoice_id',$id)->first();
+        $invoice->fulfilled = 1;
+        $invoice->save();
+
+        return redirect('/admin/purchases')->with('success', 'Invoice Fulfilled');
+    }
+
+    public function setInvoiceUnfulfilled($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $invoice = Invoice::where('invoice_id',$id)->first();
+        $invoice->fulfilled = 0;
+        $invoice->save();
+
+        return redirect('/admin/purchases')->with('success', 'Invoice Status Reset');
+    }
+
+    public function setInvoiceRejected($id){
+        if(auth()->user()->user_type_id !== 2){
+            return redirect('/home')->with('error', 'Unauthorized Page');
+        }
+
+        $invoice = Invoice::where('invoice_id',$id)->first();
+        $invoice->fulfilled = 2;
+        $invoice->save();
+
+        return redirect('/admin/purchases')->with('success', 'Invoice Rejected');
     }
 }

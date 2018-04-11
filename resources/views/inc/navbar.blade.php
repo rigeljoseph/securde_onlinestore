@@ -58,7 +58,7 @@
                             <a class="dropdown-item" href="{{ route('product_view') }}">
                                 {{ __('Add/Edit Products') }}
                             </a>
-                            <a class="dropdown-item" href="{{ route('purchases') }}">
+                            <a class="dropdown-item" href="{{ route('purchase_view') }}">
                                 {{ __('View/Edit Purchases') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

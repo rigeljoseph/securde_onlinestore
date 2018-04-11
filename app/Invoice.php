@@ -12,12 +12,12 @@ class Invoice extends Model
 
     protected $keyType = "string";
 
-    protected $incrementing = false;
+    public $incrementing = false;
 
     public $timestamps = true;
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function invoice_status(){

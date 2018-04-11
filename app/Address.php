@@ -14,11 +14,12 @@ class Address extends Model
 
     protected $keyType = "string";
 
-    protected $incrementing = false;
+    public $incrementing = false;
 
     public $timestamps = true;
 
     public function user(){
         return $this->belongsTo('App\User');
     }
+
 }

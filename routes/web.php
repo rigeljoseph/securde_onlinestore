@@ -64,6 +64,14 @@ Route::get('/admin/products/', 'AdminController@viewAllProducts')->name('product
 
 Route::get('/admin/products/{id}', 'AdminController@editProductData')->name('product_edit');
 
+Route::get('/admin/purchases/', 'AdminController@viewAllPurchases')->name('purchase_view');
+
+Route::get('/admin/purchases/reject/{id}', 'AdminController@setInvoiceFulfilled')->name('purchase_fulfill');
+
+Route::get('/admin/purchases/fulfill/{id}', 'AdminController@setInvoiceRejected')->name('purchase_reject');
+
+Route::get('/admin/purchases/undo/{id}', 'AdminController@setInvoiceUnfulfilled')->name('purchase_undo');
+
 
 Route::resource('admin', 'AdminController');
 
