@@ -66,6 +66,16 @@ Route::get('/user/edit/{id}', 'UsersController@edit')->name('user_info');
 
 Route::get('/user/edit/{id}/addresses/', 'UsersController@viewUserAddresses')->name('user_addresses');
 
+Route::get('/user/{id}/add/address', 'AddressesController@create')->name('address_create');
+
+Route::post('/user/{id}/add/address/store', 'AddressesController@store')->name('address_store');
+
+Route::get('/user/{id}/edit/address', 'AddressesController@edit')->name('address_edit');
+
+Route::put('/user/{id}/update/address', 'AddressesController@update')->name('address_update');
+
+Route::delete('/user/{id}/delete/address', 'AddressesController@destroy')->name('address_destroy');
+
 Route::put('/user/edit/submit/{users}', 'UsersController@update')->name('confirm_edit_user');
 
 Route::resource('admin', 'AdminController');

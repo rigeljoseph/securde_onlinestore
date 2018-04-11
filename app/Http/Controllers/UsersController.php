@@ -172,6 +172,6 @@ class UsersController extends Controller
 
         $addresses = Address::where('user_id', $id)->get();
 
-        return view('pages.useraddresses', ['addresses' => $addresses]);
+        return view('pages.useraddresses', ['addresses' => $addresses, 'user' => $id]);
     }
 }

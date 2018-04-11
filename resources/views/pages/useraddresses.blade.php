@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Addresses') }}</div>
 
                     <div class="card-body">
-                        <button type="button" onclick="location.href='{{action('ItemsController@create')}}'" class="btn btn-secondary">Add Address</button>
+                        <button type="button" onclick="location.href='{{action('AddressesController@create', ['id' => $user])}}'" class="btn btn-secondary">Add Address</button>
 
                         <div class="p-2"></div>
                         <table class="table">
@@ -24,8 +24,8 @@
                                 @foreach($addresses as $address)
                                     <tr>
                                         <td scope="col">{{$address->address}}</td>
-                                        <td scope="col"><button type="button" onclick="" class="btn btn-success">Edit</button></td>
-                                        <td scope="col"><button type="button" onclick="" class="btn btn-danger">Delete</button></td>
+                                        <td scope="col"><button type="button" onclick="location.href='{{action('AddressesController@edit', ['id' => $address->address_id])}}'" class="btn btn-success">Edit</button></td>
+                                        <td scope="col"><button type="button" onclick="location.href='{{action('AddressesController@destroy', ['id' => $address->address_id])}}'" class="btn btn-danger">Delete</button></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

@@ -81,4 +81,8 @@ class AddressesController extends Controller
     {
         //
     }
+
+    public function addAddress($id){
+
+    }
 }
