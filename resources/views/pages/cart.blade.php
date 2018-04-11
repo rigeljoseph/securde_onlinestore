@@ -22,7 +22,7 @@
     <th scope="row">{{$titles->name}}</th>  <!-- insert from cart loop-->
     
     <td>P{{$titles->price}}</td>
-    <td><button type="button" class="btn btn-outline-danger"> X</button></td>  <!-- delete item-->
+    <td><button type="button"  class="btn btn-outline-danger"> <a href="/cart/{{$titles->cartid }}">X</a></button></td>  <!-- delete item-->
   </tr>
   @endforeach
   </tbody>

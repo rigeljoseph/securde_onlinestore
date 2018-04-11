@@ -84,13 +84,36 @@ class UsersController extends Controller
        
 
         return view('pages.display')->with('items', $items);
+    }  
+    
+    public function delete($cartid)
+    {
+        DB::table('cart') ->where('bought', 0)->
+        where('cartid',  $cartid)->
+        update(['bought' => 1]);
+
+        $titles = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->select('items.name', 'items.price','cart.bought', 'cart.cartid')->
+        where('user_id',  Auth::user()->user_id )->
+        where('cart.bought',0)
+        ->orderBy('name','desc')->get();
+        $price = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->
+        where('user_id',  Auth::user()->user_id )->
+        where('cart.bought',0) 
+        ->orderBy('name','desc')->sum('items.price');
+        
+                return view('pages.cart')->with('titles', $titles)  ->with('price', $price);
+
     }
     public function cartdis()
     {
 
         $titles = DB::table('cart')
         ->join('items', 'cart.item_id', '=', 'items.item_id')
-        ->select('items.name', 'items.price','cart.bought')->
+        ->select('items.name', 'items.price','cart.bought','cart.cartid')->
         where('user_id',  Auth::user()->user_id )->
         where('cart.bought',0)
         ->orderBy('name','desc')->get();
@@ -106,6 +129,8 @@ class UsersController extends Controller
     }
     public function cartdisplay($items,$user)
     {
+       
+        
         $use = User::where('username', $user )->get();
         $item = Item::where('item_id', $items )->get();
         DB::table('cart')->insert([
@@ -118,7 +143,7 @@ class UsersController extends Controller
     
         $titles = DB::table('cart')
         ->join('items', 'cart.item_id', '=', 'items.item_id')
-        ->select('items.name', 'items.price','cart.bought')->
+        ->select('items.name', 'items.price','cart.bought','cart.cartid')->
         where('user_id',  Auth::user()->user_id )->
         where('cart.bought',0) 
         ->orderBy('name','desc')->get();
