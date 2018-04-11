@@ -32,21 +32,21 @@
 
   <thead class="table-primary">
     <tr>
-      <th scope="row"><center><p class="text-uppercase" style=" font-size: 35px;">{{$items->name}} </p></center></th>  <!-- insert from cart loop-->
+      <th scope="row"><center><p class="text" style=" font-size: 35px;">{{$items->name}} </p></center></th>  <!-- insert from cart loop-->
    
   </tr>
   </thead>
   <tbody>
   <tr>
-      <th scope="row"><center><p class="text-uppercase font-weight-normal" style=" font-size: 20px;"> P {{$items->price}}</p></center></th>
+      <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;"> P {{$items->price}}</p></center></th>
     
     </tr>
     <tr>
-      <th scope="row"><center><p class="text-uppercase font-weight-normal" style=" font-size: 20px;">{{$items->description}}</p></center></th>
+      <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">{{$items->description}}</p></center></th>
     
     </tr>
     <tr>
-      <th scope="row"  class="text-uppercase font-weight-normal" style=" font-size: 20px;"><center>AMOUNT TO PUCHASE: <input type = "number" min="0"style=" font-size: 20px; width:50px;"></input>
+      <th scope="row"  class="text font-weight-normal" style=" font-size: 20px;"><center>Quantity: <input type = "number" min="0"style=" font-size: 20px; width:50px;"></input>
 </center></th>
     
     </tr>
