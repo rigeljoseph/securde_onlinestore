@@ -7,7 +7,8 @@
 
 @include('inc.navitems')
 <div id="p">
- 
+
+          @if(count($items) > 0)
           <table>
             @foreach ($items as $item)
            @if ($loop->index %4 == 0)
@@ -25,7 +26,22 @@
              
            
             @endforeach
+
             <table>
-           
+          @else
+                    <div class="container">
+                        <div class="row m-4">
+                            <div class="col-sm">
+
+                            </div>
+                            <div class="col-sm">
+                                There are no items / Item cannot be found.
+                            </div>
+                            <div class="col-sm">
+
+                            </div>
+                        </div>
+                    </div>
+          @endif
         </div>
 @endsection
