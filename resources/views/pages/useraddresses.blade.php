@@ -8,24 +8,39 @@
                     <div class="card-header">{{ __('Addresses') }}</div>
 
                     <div class="card-body">
-                        <button type="button" onclick="location.href='{{action('AddressesController@create', ['id' => $user])}}'" class="btn btn-secondary">Add Address</button>
+
+                        <form method="POST" action="{{action('AddressesController@store', ['id' => $user])}}">
+                            @csrf
+
+                            <div class="form-group row">
+                                <label for="address" class="col-md-1 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                                <div class="col-md-3">
+                                    <input id="address" type="text" class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required autofocus>
+
+                                    @if ($errors->has('address'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-outline-secondary">
+                                        {{ __('Add Address') }}
+                                    </button>
+                                </div>
+                            </div>
+
+                        </form>
 
                         <div class="p-2"></div>
                         <table class="table">
                             @if(count($addresses) > 0)
-                                <thead class="table-primary">
-                                <tr>
-                                    <th scope="col">Address</th>
-                                    <th scope="col"></th>
-                                    <th scope="col"></th>
-                                </tr>
-                                </thead>
                                 <tbody>
                                 @foreach($addresses as $address)
                                     <tr>
                                         <td scope="col">{{$address->address}}</td>
-                                        <td scope="col"><button type="button" onclick="location.href='{{action('AddressesController@edit', ['id' => $address->address_id])}}'" class="btn btn-success">Edit</button></td>
-                                        <td scope="col"><button type="button" onclick="location.href='{{action('AddressesController@destroy', ['id' => $address->address_id])}}'" class="btn btn-danger">Delete</button></td>
+                                        <td scope="col"><button type="button" onclick="location.href='{{action('AddressesController@deleteAddress', ['id' => $address->user_id, 'address' => $address->address_id])}}'" class="btn btn-danger">Delete</button></td>
                                     </tr>
                                 @endforeach
                                 </tbody>
