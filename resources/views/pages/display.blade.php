@@ -41,10 +41,7 @@
       <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Price: {{$items->price}} PHP</p></center></th>
     
     </tr>
-  <tr>
-    <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Category: {{$items->category->category}}</p></center></th>
-
-  </tr>
+  
     <tr>
       <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Description: {{$items->description}}</p></center></th>
     
