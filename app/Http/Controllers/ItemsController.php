@@ -104,7 +104,7 @@ class ItemsController extends Controller
             'item_id' => 'required|alpha_num|max:40|unique:items',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
-            'price' => 'required|numeric|max:2000000000',
+            'price' => 'required|numeric|max:999999.99',
             'category' => 'required|alpha_num',
             'photo' => 'required|image|max:1999',
         ]);
@@ -185,7 +185,7 @@ class ItemsController extends Controller
             'item_id' => 'required|alpha_num|max:40|',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
-            'price' => 'required|numeric|max:2000000000',
+            'price' => 'required|numeric|max:999999.99',
             'category' => 'required|alpha_num',
         ]);
 

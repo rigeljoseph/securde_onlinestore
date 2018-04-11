@@ -11,7 +11,7 @@
                             @csrf
 
                             <div class="form-group row">
-                                <label for="item_id" class="col-md-4 col-form-label text-md-right">{{ __('SKU') }}</label>
+                                <label for="item_id" class="col-md-4 col-form-label text-md-right">{{ __('Item ID') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="item_id" type="text" class="form-control{{ $errors->has('item_id') ? ' is-invalid' : '' }}" name="item_id" value="{{ old('item_id') }}" required autofocus>
