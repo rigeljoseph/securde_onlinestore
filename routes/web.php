@@ -68,11 +68,11 @@ Route::get('/user/{id}/add/address', 'AddressesController@create')->name('addres
 
 Route::post('/user/{id}/add/address/store', 'AddressesController@store')->name('address_store');
 
-Route::get('/user/{id}/edit/address', 'AddressesController@edit')->name('address_edit');
+Route::get('/user/edit/{user_id}/address/{id}', 'AddressesController@edit')->name('address_edit');
 
-Route::put('/user/{id}/update/address', 'AddressesController@update')->name('address_update');
+Route::put('/user/update/{user_id}/address/{id}', 'AddressesController@update')->name('address_update');
 
-Route::delete('/user/{id}/delete/address', 'AddressesController@destroy')->name('address_destroy');
+Route::get('/user/delete/address/{id}/{address}', 'AddressesController@deleteAddress')->name('address_destroy');
 
 Route::put('/user/edit/submit/{users}', 'UsersController@update')->name('confirm_edit_user');
 
