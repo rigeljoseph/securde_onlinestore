@@ -91,3 +91,4 @@ Route::get('/cart', 'UsersController@cartdis')->name('cart');
 Route::get('/cart/{items}/{user}', 'UsersController@cartdisplay')->name('cart2');
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');
 
+Route::get('/success/{price}', 'UsersController@clear') ->name('clear');

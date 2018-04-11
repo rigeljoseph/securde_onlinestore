@@ -85,7 +85,7 @@
     
       <div class="modal-footer">
       <button type="button" class="btn btn-success" >
-      <a href="/" style="color:white; text-decoration:none;"> YES </a> </button>
+      <a href="/success/{{$price}}" style="color:white; text-decoration:none;"> YES </a> </button>
       <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
       </div>
     </div>

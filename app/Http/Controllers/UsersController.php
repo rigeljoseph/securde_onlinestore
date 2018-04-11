@@ -60,6 +60,22 @@ class UsersController extends Controller
 
         return view('pages.items')->with('items', $items);
     }
+    public function clear($price)
+    {
+        DB::table('cart') ->where('bought', 0)->
+        where('user_id',  Auth::user()->user_id ) ->
+        update(['bought' => 1]);
+
+        DB::table('invoices')->insert([
+            ['invoice_id'=> uniqid(),   
+            'user_id' =>Auth::user()->user_id,
+            'address_id' =>1, 
+            'total_cost' => $price,
+            'fulfilled' => 0]
+        ]);
+
+        return view('pages.success');
+    }
     public function display($search)
     {
         $item= Request::input('$search');
