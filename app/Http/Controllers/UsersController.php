@@ -62,10 +62,6 @@ class UsersController extends Controller
     }
     public function clear($price)
     {
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
-
         DB::table('cart') ->where('bought', 0)->
         where('user_id',  Auth::user()->user_id ) ->
         update(['bought' => 1]);
@@ -114,9 +110,6 @@ class UsersController extends Controller
     }
     public function cartdis()
     {
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
 
         $titles = DB::table('cart')
         ->join('items', 'cart.item_id', '=', 'items.item_id')
@@ -136,14 +129,8 @@ class UsersController extends Controller
     }
     public function cartdisplay($items,$user)
     {
-<<<<<<< HEAD
        
         
-=======
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
->>>>>>> 03edd14db4a4d4d4a8fc90ad4e980079bfdccdb1
         $use = User::where('username', $user )->get();
         $item = Item::where('item_id', $items )->get();
         DB::table('cart')->insert([
@@ -214,10 +201,6 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
-
         if(auth()->user()->user_id !== $id){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
@@ -238,11 +221,6 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
-
-
         if(auth()->user()->user_id !== $id){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
@@ -276,10 +254,6 @@ class UsersController extends Controller
     }
 
     public function viewUserAddresses($id){
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
-
         if(auth()->user()->user_id !== $id){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }

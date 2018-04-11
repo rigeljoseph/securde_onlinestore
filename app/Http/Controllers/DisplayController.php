@@ -34,10 +34,6 @@ class DisplayController extends Controller
      */
     public function create()
     {
-        if(Auth::guest()){
-            return redirect('/login')->with('error', 'Please Login to Continue');
-        }
-
         $categories = Category::all();
 
         if(auth()->user()->user_type_id !== 2){
