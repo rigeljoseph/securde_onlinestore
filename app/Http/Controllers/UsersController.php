@@ -53,7 +53,7 @@ class UsersController extends Controller
     {
         $item = Request::input('input');
 
-        $items = Item::where('name',$item )
+        $items = Item::where('name','LIKE','%'. $item. '%'  )
                     ->orWhere('photo',$item )->get();
 
 
