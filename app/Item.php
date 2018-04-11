@@ -3,9 +3,21 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Item extends Model
 {
+
+    use LogsActivity;
+
+    protected $fillable = [
+        'item_id', 'category_id', 'name', 'description', 'price', 'photo'
+    ];
+
+    protected static $logAttributes = [
+        'category_id', 'name', 'description', 'price'
+    ];
+
     protected $table = "items";
 
     protected $primaryKey = "item_id";

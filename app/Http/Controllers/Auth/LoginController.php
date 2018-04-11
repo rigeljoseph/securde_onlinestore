@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -25,6 +26,38 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+    public function logout(Request $request)
+    {
+        $description = $request->ip() . ' logged out ';
+
+        activity()->log($description);
+
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return redirect('/');
+    }
+
+
+    protected function authenticated(Request $request, $user)
+    {
+        $description = $request->ip() . ' logged in ';
+
+        activity()->log($description);
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $description = $request->ip() . ' failed to logged in ';
+
+        activity()->log($description);
+        throw ValidationException::withMessages([
+            $this->username() => [trans('auth.failed')],
+        ]);
+    }
+
     protected $redirectTo = '/home';
 
     /**

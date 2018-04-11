@@ -23,6 +23,13 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    protected function registered()
+    {
+        $description = 'account registered ';
+
+        activity()->log($description);//
+    }
+
     /**
      * Where to redirect users after registration.
      *
