@@ -80,16 +80,16 @@ Route::resource('admin', 'AdminController');
 
 Route::resource('item', 'ItemsController');
 
-Route::get('/items', 'UsersController@viewAll')->name('items');
-Route::get('/items/top', 'UsersController@viewTop')->name('top');
-Route::get('/items/pants', 'UsersController@viewPants')->name('pants');
-Route::get('/items/shorts', 'UsersController@viewShorts')->name('shorts');
-Route::get('/items/hoodies', 'UsersController@viewHoodies')->name('hoodies');
+Route::get('/items', 'InvoicesController@viewAll')->name('items');
+Route::get('/items/top', 'InvoicesController@viewTop')->name('top');
+Route::get('/items/pants', 'InvoicesController@viewPants')->name('pants');
+Route::get('/items/shorts', 'InvoicesController@viewShorts')->name('shorts');
+Route::get('/items/hoodies', 'InvoicesController@viewHoodies')->name('hoodies');
 
-Route::get('/items/search/', 'UsersController@search')->name('search');
-Route::get('/cart', 'UsersController@cartdis')->name('cart');
-Route::get('/cart/{cartid}', 'UsersController@delete')->name('delete');
-Route::get('/cart/{items}/{user}', 'UsersController@cartdisplay')->name('cart2');
+Route::get('/items/search/', 'InvoicesController@search')->name('search');
+Route::get('/cart', 'InvoicesController@cartdis')->name('cart');
+Route::get('/cart/{cartid}', 'InvoicesController@delete')->name('delete');
+Route::get('/cart/{items}/{user}', 'InvoicesController@cartdisplay')->name('cart2');
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');
 
-Route::get('/success/{price}', 'UsersController@clear') ->name('clear');
+Route::get('/success/{price}', 'InvoicesController@clear') ->name('clear');
