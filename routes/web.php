@@ -81,7 +81,7 @@ Route::get('/items', 'UsersController@viewAll')->name('items');
 Route::get('/items/top', 'UsersController@viewTop')->name('top');
 Route::get('/items/pants', 'UsersController@viewPants')->name('pants');
 Route::get('/items/shorts', 'UsersController@viewShorts')->name('shorts');
-Route::get('/items/hoodies', 'UsersController@viewPants')->name('hoodies');
+Route::get('/items/hoodies', 'UsersController@viewHoodies')->name('hoodies');
 
 Route::get('/items/search/', 'UsersController@search')->name('search');
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');

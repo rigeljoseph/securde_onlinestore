@@ -46,7 +46,6 @@ class UsersController extends Controller
     {
         $items = Item::where('category_id', 4)->get();
 
-
         return view('pages.items')->with('items', $items);
     }
     public function search()
