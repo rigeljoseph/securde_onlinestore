@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Category;
 
@@ -35,6 +35,10 @@ class DisplayController extends Controller
     public function create()
     {
         $categories = Category::all();
+
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
 
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');

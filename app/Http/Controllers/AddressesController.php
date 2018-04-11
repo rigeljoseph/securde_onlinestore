@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Address;
+use Illuminate\Support\Facades\Auth;
 
 class AddressesController extends Controller
 {
@@ -47,6 +48,10 @@ class AddressesController extends Controller
      */
     public function store(Request $request, $id)
     {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         if(auth()->user()->user_id !== $id){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
@@ -113,6 +118,10 @@ class AddressesController extends Controller
     }
 
     public function deleteAddress($user_id, $address_id){
+
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
 
         if(auth()->user()->user_id !== $user_id){
             return redirect('/home')->with('error', 'Unauthorized Page');

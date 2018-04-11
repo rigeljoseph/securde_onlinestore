@@ -67,6 +67,7 @@ class InvoicesController extends Controller
         if(Auth::guest()){
             return redirect('/login')->with('error', 'Please Login to Continue');
         }
+
         DB::table('cart') ->where('bought', 0)->
         where('user_id',  Auth::user()->user_id ) ->
         update(['bought' => 1]);
@@ -93,6 +94,10 @@ class InvoicesController extends Controller
     
     public function delete($cartid)
     {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         DB::table('cart') ->where('bought', 0)->
         where('cartid',  $cartid)->
         update(['bought' => 1]);

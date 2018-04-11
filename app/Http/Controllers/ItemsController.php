@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Inventory;
 use App\Item;
+use Illuminate\Support\Facades\Auth;
 
 class ItemsController extends Controller
 {
@@ -80,6 +81,10 @@ class ItemsController extends Controller
     {
         $categories = Category::all();
 
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
@@ -95,6 +100,9 @@ class ItemsController extends Controller
      */
     public function store(Request $request)
     {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
 
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');
@@ -177,6 +185,10 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         if(auth()->user()->user_type_id !== 2){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
