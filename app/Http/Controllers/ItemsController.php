@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use \Input as Input;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Category;
 use App\Inventory;
 use App\Item;
