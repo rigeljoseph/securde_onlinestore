@@ -38,15 +38,19 @@
   </thead>
   <tbody>
   <tr>
-      <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;"> P {{$items->price}}</p></center></th>
+      <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Price: {{$items->price}} PHP</p></center></th>
+    
+    </tr>
+  <tr>
+    <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Category: {{$items->category->category}}</p></center></th>
+
+  </tr>
+    <tr>
+      <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Description: {{$items->description}}</p></center></th>
     
     </tr>
     <tr>
-      <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">{{$items->description}}</p></center></th>
-    
-    </tr>
-    <tr>
-      <th scope="row"  class="text font-weight-normal" style=" font-size: 20px;"><center>Quantity: <input type = "number" min="0"style=" font-size: 20px; width:50px;"></input>
+      <th scope="row"  class="text font-weight-normal" style=" font-size: 20px;"><center>Quantity:  <input type = "number" min="0"style=" font-size: 20px; width:50px;"></input>
 </center></th>
     
     </tr>
