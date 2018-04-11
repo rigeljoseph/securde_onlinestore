@@ -46,11 +46,7 @@
       <th scope="row"><center><p class="text font-weight-normal" style=" font-size: 20px;">Description: {{$items->description}}</p></center></th>
     
     </tr>
-    <tr>
-      <th scope="row"  class="text font-weight-normal" style=" font-size: 20px;"><center>Quantity:  <input type = "number" min="0"style=" font-size: 20px; width:50px;"></input>
-</center></th>
-    
-    </tr>
+   
     <tr>
       <th scope="row"><center><button class="btn btn-info btn-md font-weight-normal" 
       data-toggle="modal" data-target="#exampleModal" 
@@ -68,7 +64,8 @@
       </div>
     
       <div class="modal-footer">
-      <button type="button" class="btn btn-success">YES</button>
+      <button type="button" class="btn btn-success" >
+      <a href="/cart/{{ $items->item_id }}/{{ Auth::user()->username}}" style="color:white; text-decoration:none;"> YES </a> </button>
       <button type="button" class="btn btn-danger" data-dismiss="modal">NO</button>
       </div>
     </div>

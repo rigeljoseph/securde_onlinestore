@@ -88,6 +88,6 @@ Route::get('/items/hoodies', 'UsersController@viewHoodies')->name('hoodies');
 
 Route::get('/items/search/', 'UsersController@search')->name('search');
 Route::get('/cart', 'UsersController@cartdis')->name('cart');
-Route::get('/cart/{items}/{user}', 'UserController@cartdisplay')->name('cart2');
+Route::get('/cart/{items}/{user}', 'UsersController@cartdisplay')->name('cart2');
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');
 

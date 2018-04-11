@@ -13,29 +13,18 @@
     <tr>
       <th scope="col">Items</th>
       <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">cool shirt</th>  <!-- insert from cart loop-->
-      <td>20 pesos</td>
-      <td>3</td>
-      <td><button type="button" class="btn btn-outline-danger"> X</button></td>  <!-- delete item-->
-    </tr>
-    <tr>
-      <th scope="row">cool pants</th>
-      <td>20 pesos</td>
-      <td>3</td>
-      <td><button type="button" class="btn btn-outline-danger">X</button></td>  <!-- delete item-->
-    </tr>
-    <tr>
-    <th scope="row">another cool shirt</th>
-    <td>20 pesos</td>
-    <td>3</td>
-    <td><button type="button" class="btn btn-outline-danger">X</button></td>  <!-- delete item-->
-    </tr>
+  @foreach($titles as $titles)
+  <tr>
+    <th scope="row">{{$titles->name}}</th>  <!-- insert from cart loop-->
+    
+    <td>P{{$titles->price}}</td>
+    <td><button type="button" class="btn btn-outline-danger"> X</button></td>  <!-- delete item-->
+  </tr>
+  @endforeach
   </tbody>
 </table> 
 </div>
@@ -52,7 +41,7 @@
   <tbody>
     <tr>
       <th scope="row">Total:</th>  <!-- insert from cart loop-->
-      <td>100 pesos</td>
+      <td>{{$price}}</td>
      
     </tr>
     <tr>

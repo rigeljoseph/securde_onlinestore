@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use Request;
 use App\User;
 use App\Category;
 use App\Address;
-
+use DB;
+use Illuminate\Support\Facades\Auth;
 use App\Item;
 class UsersController extends Controller
 {
@@ -67,6 +68,52 @@ class UsersController extends Controller
        
 
         return view('pages.display')->with('items', $items);
+    }
+    public function cartdis()
+    {
+
+        $titles = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->select('items.name', 'items.price','cart.bought')->
+        where('user_id',  Auth::user()->user_id )->
+        where('cart.bought',0)
+        ->orderBy('name','desc')->get();
+        $price = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->
+        where('user_id',  Auth::user()->user_id )->
+        where('cart.bought',0) 
+        ->orderBy('name','desc')->sum('items.price');
+        
+                return view('pages.cart')->with('titles', $titles)  ->with('price', $price);
+
+    }
+    public function cartdisplay($items,$user)
+    {
+        $use = User::where('username', $user )->get();
+        $item = Item::where('item_id', $items )->get();
+        DB::table('cart')->insert([
+            ['user_id' => $use[0]->user_id,
+            'item_id' =>$item[0]->item_id ,
+            'quantity' => '1',
+            'price' => '20',
+            'bought' => 0]
+        ]);
+    
+        $titles = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->select('items.name', 'items.price','cart.bought')->
+        where('user_id',  Auth::user()->user_id )->
+        where('cart.bought',0) 
+        ->orderBy('name','desc')->get();
+        $price = DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->
+        where('user_id',  Auth::user()->user_id )->
+        where('cart.bought',0) 
+        ->orderBy('name','desc')->sum('items.price');
+        
+                return view('pages.cart')->with('titles', $titles)  ->with('price', $price);
     }
     public function index()
     {

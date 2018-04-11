@@ -14,12 +14,12 @@ class CreateSessionsTable extends Migration
     public function up()
     {
         Schema::create('sessions', function ($table) {
-            $table->string('id')->unique();
-            $table->unsignedInteger('user_id')->nullable();
-            $table->string('ip_address', 45)->nullable();
-            $table->text('user_agent')->nullable();
-            $table->text('payload');
-            $table->integer('last_activity');
+            $table->increments('cart_id');
+            $table->integer('item_id');
+            $table->string('name');
+            $table->string('quantity');
+            $table->string('price');
+            $table->timestamps();
         });
     }
 
