@@ -24,9 +24,7 @@ Route::get('/register', function () {
     return view('pages/register');
 });
 
-Route::get('/cart', function () {
-    return view('pages/cart');
-})->name('cart');
+
 
 Route::get('/products', function () {
     return view('pages/adminproduct');
@@ -89,4 +87,7 @@ Route::get('/items/shorts', 'UsersController@viewShorts')->name('shorts');
 Route::get('/items/hoodies', 'UsersController@viewHoodies')->name('hoodies');
 
 Route::get('/items/search/', 'UsersController@search')->name('search');
+Route::get('/cart', 'UsersController@cartdis')->name('cart');
+Route::get('/cart/{items}/{user}', 'UserController@cartdisplay')->name('cart2');
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');
+
