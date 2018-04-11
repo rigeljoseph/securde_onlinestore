@@ -14,7 +14,7 @@ class AddPhotoToItems extends Migration
     public function up()
     {
         Schema::table('items', function($table){
-            $table->string('photo');
+            $table->string('photo')->nullable();
         });
     }
 

@@ -15,7 +15,7 @@
   <table class="table">
   <thead >
     <tr>
-      <th scope="row"><center> <img src="{{ asset($items->photo) }}"  
+      <th scope="row"><center> <img src="{{ asset('storage/item_photos/'.$items->photo) }}"
               class="img-fluid img-thumbnail "
              style="height:500px; width:500px;"></center>     </th>
    

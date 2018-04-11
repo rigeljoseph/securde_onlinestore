@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use \Input as Input;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Inventory;
@@ -106,9 +106,28 @@ class ItemsController extends Controller
             'description' => 'required|string',
             'price' => 'required|numeric',
             'category' => 'required|alpha_num',
+            'photo' => 'image|max:1999'
         ]);
 
-        // create item
+        // Get filename with extension
+
+        $filenameWithExt = $request->file('photo')->getClientOriginalName();
+
+        // Get just the filename
+
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+
+        // Get extension
+
+        $extension = $request->file('photo')->getClientOriginalExtension();
+
+        // Create new filename
+
+        $filenameToStore = $filename.'_'.time().'.'.$extension;
+
+        // store item
+
+        $path = $request->file('photo')->storeAs('public/item_photos', $filenameToStore);
 
         $item = new Item;
         $item->item_id = $request->input('item_id');
@@ -116,6 +135,7 @@ class ItemsController extends Controller
         $item->description = $request->input('description');
         $item->price = $request->input('price');
         $item->category_id = $request->input('category');
+        $item->photo = $filenameToStore;
         $item->save();
 
         $inventory = new Inventory;

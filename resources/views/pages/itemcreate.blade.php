@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Create Item') }}</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('item.store') }}">
+                        <form method="POST" action="{{ route('item.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -61,6 +61,19 @@
                                     @if ($errors->has('price'))
                                         <span class="invalid-feedback">
                                         <strong>{{ $errors->first('price') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="photo" class="col-md-4 col-form-label text-md-right">{{ __('Photo') }}</label>
+
+                                <div class="col-md-6">
+                                    <input type="file" name="photo" id="photo">
+                                    @if ($errors->has('photo'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('photo') }}</strong>
                                     </span>
                                     @endif
                                 </div>
