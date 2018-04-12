@@ -84,6 +84,10 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         if(auth()->user()->user_id !== $id){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
@@ -117,6 +121,10 @@ class UsersController extends Controller
     }
 
     public function viewUserAddresses($id){
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         if(auth()->user()->user_id !== $id){
             return redirect('/home')->with('error', 'Unauthorized Page');
         }
