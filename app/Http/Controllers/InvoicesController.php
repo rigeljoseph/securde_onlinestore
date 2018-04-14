@@ -67,18 +67,23 @@ class InvoicesController extends Controller
         if(Auth::guest()){
             return redirect('/login')->with('error', 'Please Login to Continue');
         }
+            $unique=uniqid();
+            DB::table('cart') ->where('bought', 0)->
+            where('user_id',  Auth::user()->user_id ) ->
+            update(['invoice_id' => $unique]);
 
         DB::table('cart') ->where('bought', 0)->
         where('user_id',  Auth::user()->user_id ) ->
         update(['bought' => 1]);
 
         DB::table('invoices')->insert([
-            ['invoice_id'=> uniqid(),   
+            ['invoice_id'=> $unique,   
             'user_id' =>Auth::user()->user_id,
             'address_id' =>1, 
             'total_cost' => $price,
             'fulfilled' => 0]
         ]);
+            
 
         return view('pages.success');
     }
