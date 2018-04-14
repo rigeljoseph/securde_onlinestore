@@ -68,10 +68,12 @@
 
    <tr>
       <th scope="row">
+      @if($price != 0)
       <button type="button" style="background-color:#468499" class="btn btn-secondary btn-lg btn-block"
         data-toggle="modal" data-target="#exampleModal" >
-      CHECKOUT</button></th>  <!-- checkout confrimation-->
       
+      CHECKOUT</button></th>  <!-- checkout confrimation-->
+      @endif
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

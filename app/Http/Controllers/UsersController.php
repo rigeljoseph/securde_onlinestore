@@ -84,6 +84,10 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if($request == null){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+
         if(Auth::guest()){
             return redirect('/login')->with('error', 'Please Login to Continue');
         }
