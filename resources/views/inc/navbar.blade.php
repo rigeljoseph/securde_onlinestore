@@ -30,6 +30,13 @@
                 <li class="navbar-item">
                     <a href="{{ route('items') }}"  style="font-size:20px;" class="nav-link" id="linkid">Items</a>
                 </li>
+                @guest
+                @elseif(Auth::user()->user_type_id == 1 )
+                <li class="navbar-item">
+                    <a href="{{ route('invoice') }}"  style="font-size:20px;" class="nav-link" id="linkid">Orders</a>
+                </li>
+            
+                @endif
             </ul>
         </div>
 

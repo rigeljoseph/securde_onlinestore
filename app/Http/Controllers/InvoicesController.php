@@ -85,7 +85,7 @@ class InvoicesController extends Controller
         ]);
             
 
-        return view('pages.success');
+        return view('pages.success')->with('unique', $unique);
     }
     public function display($search)
     {
@@ -113,6 +113,7 @@ class InvoicesController extends Controller
         where('user_id',  Auth::user()->user_id )->
         where('cart.bought',0)
         ->orderBy('name','desc')->get();
+      
         $price = DB::table('cart')
         ->join('items', 'cart.item_id', '=', 'items.item_id')
         ->
@@ -120,7 +121,7 @@ class InvoicesController extends Controller
         where('cart.bought',0) 
         ->orderBy('name','desc')->sum('items.price');
         
-                return view('pages.cart')->with('titles', $titles)  ->with('price', $price);
+        return view('pages.cart')->with('titles', $titles)  ->with('price', $price);
 
     }
     public function cartdis()
@@ -168,16 +169,51 @@ class InvoicesController extends Controller
         where('user_id',  Auth::user()->user_id )->
         where('cart.bought',0) 
         ->orderBy('name','desc')->get();
+
         $price = DB::table('cart')
         ->join('items', 'cart.item_id', '=', 'items.item_id')
-        ->
-        where('user_id',  Auth::user()->user_id )->
-        where('cart.bought',0) 
+        ->  where('user_id',  Auth::user()->user_id )
+        ->  where('cart.bought',0) 
         ->orderBy('name','desc')->sum('items.price');
         
                 return view('pages.cart')->with('titles', $titles)  ->with('price', $price);
     }
+   
+    public function showinvoice()
+    
+    {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+        $invoice= DB::table('invoices')->select('invoice_id','total_cost')->where('user_id',  Auth::user()->user_id )
+        ->get(); 
+        
+    
+        return view('pages.invoices')->with('invoice', $invoice);
+    }  
+    public function summary($id)
+    
+    {
+        if(Auth::guest()){
+            return redirect('/login')->with('error', 'Please Login to Continue');
+        }
+        
+        $invoice= DB::table('invoices')->select('invoice_id','total_cost')
+        ->where('invoice_id',$id)
+        ->where('user_id',  Auth::user()->user_id )
+        ->get(); 
 
+        $orders= DB::table('cart')
+        ->join('items', 'cart.item_id', '=', 'items.item_id')
+        ->select('cart.item_id','items.name','items.price')
+        ->where('user_id',  Auth::user()->user_id )
+        ->where('cart.invoice_id',$id)
+         ->get(); 
+        
+    
+        return view('pages.summary')->with('invoice', $invoice)->with('orders',$orders);
+    } 
+    
 
     public function index()
     {

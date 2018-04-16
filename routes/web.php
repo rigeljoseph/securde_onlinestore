@@ -93,3 +93,5 @@ Route::get('/cart/{items}/{user}', 'InvoicesController@cartdisplay')->name('cart
 Route::get('/display/{search}', 'InventoriesController@display')->name('display');
 
 Route::get('/success/{price}', 'InvoicesController@clear') ->name('clear');
+Route::get('/invoice', 'InvoicesController@showinvoice' )->name('invoice');
+Route::get('/summary/{id}', 'InvoicesController@summary' )->name('summary');
