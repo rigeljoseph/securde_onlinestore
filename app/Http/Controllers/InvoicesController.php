@@ -198,7 +198,7 @@ class InvoicesController extends Controller
             return redirect('/login')->with('error', 'Please Login to Continue');
         }
         
-        $invoice= DB::table('invoices')->select('invoice_id','total_cost')
+        $invoice= DB::table('invoices')->select('invoice_id','total_cost','fulfilled')
         ->where('invoice_id',$id)
         ->where('user_id',  Auth::user()->user_id )
         ->get(); 

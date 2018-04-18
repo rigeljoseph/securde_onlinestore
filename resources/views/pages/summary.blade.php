@@ -15,6 +15,7 @@
                   <th scope="col" >Purchase ID</th>
                   <th scope="col" >Items</th>
                   <th scope="col">Total Cost</th>
+                  <th scope="col">Status</th>
                 </tr>
                 </thead>
               
@@ -30,7 +31,13 @@
                 </ul>
                 </td>
                 <td>P {{$invoice->total_cost}}</td>
-
+                @if($invoice->fulfilled == 0)
+                <td>In process</td>
+                @elseif($invoice->fulfilled == 1)
+                <td>Delivered</td>
+                @elseif($invoice->fulfilled == 2)
+                <td>Rejected</td>
+                @endif
                 </tr>
 
                 @endforeach
